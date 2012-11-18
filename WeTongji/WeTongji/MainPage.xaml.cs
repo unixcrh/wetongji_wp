@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using System.Diagnostics;
 using System.IO;
+using WeTongji.ParameterDictionary;
 
 namespace WeTongji
 {
@@ -29,33 +30,20 @@ namespace WeTongji
             DataContext = App.ViewModel;
         }
 
-        private void Test_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// LogOn demo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LogOn_Click(object sender, RoutedEventArgs e)
         {
-            String url = "http://we.tongji.edu.cn/api/call?";
+            Dictionary<string, object> dict = new Dictionary<string, object>();
 
-            Dictionary<string, string> dict = new Dictionary<string, string>(10);
-            dict["V"] = "2.0.0";
-            dict["M"] = "User.LogOn";
-            dict["NO"] = "092983";
-            dict["Password"] = "123456";
-            dict["D"] = "iphone";
+            dict[Request.Method] = WTUser.LogOn.Method;
+            dict[WTUser.LogOn.NO] = "092983";
+            dict[WTUser.LogOn.Password] = "123456";
 
-            var q = dict.OrderBy(pair => pair.Key);
-            String queryStr = "";
-            foreach (var item in q)
-            {
-                queryStr += HttpUtility.UrlEncode(item.Key) + "=" + HttpUtility.UrlEncode(item.Value) + "&";
-            }
-
-            queryStr = queryStr.Substring(0, queryStr.Length - 1);
-
-            var lower = queryStr.ToLower();
-
-            var hashStr = JeffWilcox.Utilities.Silverlight.MD5Core.GetHashString("D=iphone&M=User.LogOn&NO=092983&Password=123456&V=2.0.0");
-
-            url += queryStr + "&H=" + hashStr.ToLower();
-            Debug.WriteLine(url);
-
+            String url = WTClient.Instance.BuildURL(dict);
             HttpWebRequest request = HttpWebRequest.CreateHttp(url);
             object obj = new object();
             var result = request.BeginGetResponse((args) => 

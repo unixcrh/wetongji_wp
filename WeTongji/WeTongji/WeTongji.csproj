@@ -82,6 +82,7 @@
     <Compile Include="ParameterDictionary\Schedule.cs" />
     <Compile Include="ParameterDictionary\Status.cs" />
     <Compile Include="ParameterDictionary\TimeTable.cs" />
+    <Compile Include="ParameterDictionary\User.cs" />
     <Compile Include="ParameterDictionary\Version.cs" />
     <Compile Include="WTClient.cs" />
     <Compile Include="Converter\NewsPageConverter.cs" />
