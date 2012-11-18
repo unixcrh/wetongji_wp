@@ -71,6 +71,19 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppSquare.cs" />
+    <Compile Include="ParameterDictionary\Activities.cs" />
+    <Compile Include="ParameterDictionary\Channel.cs" />
+    <Compile Include="ParameterDictionary\Favorite.cs" />
+    <Compile Include="ParameterDictionary\Information.cs" />
+    <Compile Include="ParameterDictionary\News.cs" />
+    <Compile Include="ParameterDictionary\Person.cs" />
+    <Compile Include="ParameterDictionary\Request.cs" />
+    <Compile Include="ParameterDictionary\Response.cs" />
+    <Compile Include="ParameterDictionary\Schedule.cs" />
+    <Compile Include="ParameterDictionary\Status.cs" />
+    <Compile Include="ParameterDictionary\TimeTable.cs" />
+    <Compile Include="ParameterDictionary\Version.cs" />
+    <Compile Include="WTClient.cs" />
     <Compile Include="Converter\NewsPageConverter.cs" />
     <Compile Include="EditPersonalInfo.xaml.cs">
       <DependentUpon>EditPersonalInfo.xaml</DependentUpon>
@@ -84,6 +97,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MD5.cs" />
     <Compile Include="News.xaml.cs">
       <DependentUpon>News.xaml</DependentUpon>
     </Compile>

@@ -87,8 +87,8 @@
                 <!--Double line list with image placeholder and text wrapping-->
         		<ScrollViewer Width="432">
         			<!--Double line list with image placeholder and text wrapping-->
-        			<Grid x:Name="Grid_Person_Content" VerticalAlignment="Top" HorizontalAlignment="Left">
-        				<Grid x:Name="Grid_Person" Width="432" HorizontalAlignment="Left" VerticalAlignment="Top">
+        			<Grid x:Name="Grid_Person_Content" VerticalAlignment="Top" HorizontalAlignment="Left" Height="211" Width="432">
+        				<!--<Grid x:Name="Grid_Person" Width="432" HorizontalAlignment="Left" VerticalAlignment="Top">
         					<Grid.RowDefinitions>
         						<RowDefinition Height="1*"/>
         						<RowDefinition Height="0*"/>
@@ -113,8 +113,10 @@
                                     <Button x:Name="Button_ChangePW1" d:LayoutOverrides="Width, Height" Content="无日程安排" Background="{x:Null}" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe WP" Style="{StaticResource ButtonStyle_NoSchedule}" Foreground="Black"/>
         						</Grid>
         					</Grid>
-        				</Grid>
-        			</Grid>
+        				</Grid>-->
+                        <Button Content="Test" Click="Test_Click"/>
+                        
+                    </Grid>
         		</ScrollViewer>
         	</controls:PanoramaItem>
            
