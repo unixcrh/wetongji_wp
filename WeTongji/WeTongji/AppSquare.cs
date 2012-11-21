@@ -11,9 +11,6 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Windows.Media.Imaging;
 using System.Collections.ObjectModel;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Collections.ObjectModel;
 using System.Windows.Navigation;
 
 namespace WeTongji

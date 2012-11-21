@@ -71,6 +71,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppSquare.cs" />
+    <Compile Include="Data\Course.cs" />
+    <Compile Include="Data\Event.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="ParameterDictionary\Activities.cs" />
     <Compile Include="ParameterDictionary\Channel.cs" />
     <Compile Include="ParameterDictionary\Favorite.cs" />
@@ -84,6 +87,7 @@
     <Compile Include="ParameterDictionary\TimeTable.cs" />
     <Compile Include="ParameterDictionary\User.cs" />
     <Compile Include="ParameterDictionary\Version.cs" />
+    <Compile Include="Utility\Unicode2String.cs" />
     <Compile Include="WTClient.cs" />
     <Compile Include="Converter\NewsPageConverter.cs" />
     <Compile Include="EditPersonalInfo.xaml.cs">

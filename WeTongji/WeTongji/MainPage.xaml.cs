@@ -13,6 +13,9 @@ using Microsoft.Phone.Controls;
 using System.Diagnostics;
 using System.IO;
 using WeTongji.ParameterDictionary;
+using System.Text;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace WeTongji
 {
@@ -40,21 +43,45 @@ namespace WeTongji
             Dictionary<string, object> dict = new Dictionary<string, object>();
 
             dict[Request.Method] = WTUser.LogOn.Method;
-            dict[WTUser.LogOn.NO] = "092983";
+            dict[WTUser.LogOn.NO] = "000000";
             dict[WTUser.LogOn.Password] = "123456";
 
             String url = WTClient.Instance.BuildURL(dict);
             HttpWebRequest request = HttpWebRequest.CreateHttp(url);
             object obj = new object();
-            var result = request.BeginGetResponse((args) => 
+            var result = request.BeginGetResponse((args) =>
             {
                 var response = request.EndGetResponse(args);
                 Stream responseStream = response.GetResponseStream();
                 StreamReader sr = new StreamReader(responseStream);
                 var str = sr.ReadToEnd();
-                //...Parse the string below
-                Debug.WriteLine(str);
-            },obj );
+
+                var jObj = JObject.Parse(str);
+
+                if (jObj is JContainer)
+                {
+                    var jContainer = jObj as JContainer;
+                    foreach (JToken item in jContainer.Children())
+                    {
+                        if (item is JProperty)
+                        {
+                            var jProperty = item as JProperty;
+
+                            if (jProperty.Name == "Data")
+                            {
+                                WeTongji.Data.User user = new WeTongji.Data.User(jProperty.Value);
+                                //var s = JsonConvert.SerializeObject(user);
+                                //Debug.WriteLine(s);
+                                
+                                return;
+                            }
+                        }
+                    }
+                }
+            }, obj);
+
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+
         }
     }
 }
