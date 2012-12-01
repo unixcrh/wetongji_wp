@@ -53,8 +53,9 @@
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls" />
     <Reference Include="Microsoft.Phone.Interop" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\sl4-windowsphone71\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WTSDK\Properties\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -72,8 +73,10 @@
     </Compile>
     <Compile Include="AppSquare.cs" />
     <Compile Include="Data\Activity.cs" />
+    <Compile Include="Data\Channel.cs" />
     <Compile Include="Data\Course.cs" />
     <Compile Include="Data\Event.cs" />
+    <Compile Include="Data\Exam.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="ParameterDictionary\Activities.cs" />
     <Compile Include="ParameterDictionary\Channel.cs" />
@@ -207,6 +210,12 @@
     </Content>
     <Resource Include="Images\Temp\header_background.jpg" />
     <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WTSDK\WTSDK.csproj">
+      <Project>{E43F9E0F-59D1-4BF2-8B1B-E1CF10F9792E}</Project>
+      <Name>WTSDK</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

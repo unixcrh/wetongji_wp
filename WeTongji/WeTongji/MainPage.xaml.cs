@@ -40,10 +40,11 @@ namespace WeTongji
         /// <param name="e"></param>
         private void LogOn_Click(object sender, RoutedEventArgs e)
         {
+            WeTongji.Api.DefaultWTClient client = new WeTongji.Api.DefaultWTClient();
             Dictionary<string, object> dict = new Dictionary<string, object>();
 
             dict[Request.Method] = WTUser.LogOn.Method;
-            dict[WTUser.LogOn.NO] = "000000";
+            dict[WTUser.LogOn.NO] = "092983";
             dict[WTUser.LogOn.Password] = "123456";
 
             String url = WTClient.Instance.BuildURL(dict);
@@ -70,7 +71,7 @@ namespace WeTongji
                             if (jProperty.Name == "Data")
                             {
                                 WeTongji.Data.User user = new WeTongji.Data.User(jProperty.Value);
-                                //var s = JsonConvert.SerializeObject(user);
+                                var s = JsonConvert.SerializeObject(user);
                                 //Debug.WriteLine(s);
                                 
                                 return;
